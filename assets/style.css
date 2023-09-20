@@ -1,0 +1,36 @@
+h1 {
+    height: 1em;
+    font-size: 2em;
+    margin: 0px;
+    overflow: clip
+    float: left;
+}
+h1 img {
+    height: 300%;
+    shape-margin: 10px;
+    float: left;
+}
+
+p {
+    padding: 0 1em;
+    text-align: justify;
+}
+
+table {
+    width: 100%;
+}
+
+td:first-child {
+    width: 0%;
+}
+td {
+    width: 100%;
+}
+
+.bar {
+    height: .5em;
+    border-radius: 1em;
+    border: solid 1px;
+    background-color: var(--language-color);
+}
+

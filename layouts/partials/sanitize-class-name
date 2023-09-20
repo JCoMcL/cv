@@ -1,0 +1,1 @@
+{{ replace . "+" "p" | replaceRE "#" "Sharp" | replaceRE "/.*$" "" }}

@@ -1,0 +1,9 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+#theme = 'benis'
+
+#Why this option exists is explained her: https://github.com/gohugoio/hugo/issues/9315#issuecomment-1000347317
+#it seems very niche and I don't believe it should be enabled by default
+[security.exec]
+allow = ['.*']

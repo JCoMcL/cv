@@ -1,0 +1,5 @@
+{{range $k, $v := getJSON "https://github.com/ozh/github-colors/raw/master/colors.json" }} {{if and $k $v.color }}
+.{{partial "sanitize-class-name" $k}}{
+	--language-color:{{ $v.color}};
+}
+{{end}} {{end}}

@@ -1,0 +1,13 @@
+{{if eq (printf "%T" .) "*resources.resourceAdapter" }}
+    <link type="text/css" rel="stylesheet" href="{{.RelPermalink}}">
+{{else}}
+    {{with resources.Get . }}
+        {{partial "stylesheet" .}}
+    {{else}}
+        {{$target := . }}
+        {{with resources.Get (replaceRE `$` ".template" . )}}
+            {{partial "stylesheet" (resources.ExecuteAsTemplate $target $target .)}}
+        {{end}}
+    {{end}}
+{{end}}
+{{/* this was such a pain in the ass to write */}}

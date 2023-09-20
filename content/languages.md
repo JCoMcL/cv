@@ -1,0 +1,10 @@
+Python,7
+Java,5
+C#,4
+HTML/CSS,8
+JavaScript,7
+C,8
+C++,6
+SQL,4
+Go,5
+Shell,9

@@ -1,0 +1,4 @@
+{{ $src:= resources.GetMatch (replaceRE "^|$" "*" .File.BaseFileName ) }}
+{{ if $src }}
+<img src="{{$src.RelPermalink}}"\ style="shape-outside: url({{$src.RelPermalink}})">
+{{ end }}
