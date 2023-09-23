@@ -1,18 +1,31 @@
 {{ define "main" -}}
 
-{{ range where .Site.AllPages "File.Dir" "like" "tidbits" -}}
-<article>
-  <h1>{{ partial "find_title_image" . }} {{ .Title }}</h1>
-  {{ .Content }}
-</article>
-{{- end }}
-<table>
-{{range $v:= getCSV "," (printf "%s%s" "content/" (.Site.GetPage "languages").File.Path) }}
-<tr>
-    <td>{{index $v 0}}</td>
-    <td><div class="bar {{partial "sanitize-class-name" (index $v 0)}}" style="width:{{mul (float (index $v 1)) 10 }}%"></div></td>
-</tr>
-{{end}}
-</table>
+
+<div class="side-content">
+    <address>
+        {{partial "data" site.Data.me }}
+    </address>
+
+    <table>
+        {{range $v:= getCSV "," (printf "%s%s" "content/" (.Site.GetPage "languages").File.Path) }}
+        <tr>
+            <td>{{index $v 0}}</td>
+            <td><div class="bar {{partial "sanitize-class-name" (index $v 0)}}" style="width:{{mul (float (index $v 1)) 10 }}%"></div></td>
+        </tr>
+        {{end}}
+    </table>
+</div>
+
+<main>
+    {{ range where .Site.AllPages "File.Dir" "like" "tidbits" -}}
+    <article>
+         {{ partial "icon" .File.BaseFileName }}
+         <h1> {{ .Title }}</h1>
+         {{ .Content }}
+    </article>
+    {{end }}
+</main>
+
+
 
 {{- end }}

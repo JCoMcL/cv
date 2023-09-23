@@ -1,0 +1,34 @@
+{{if not (isset . "hlevel")}}
+    {{partial "data" (dict "context" . "hlevel" 1) }}
+{{else}} {{with .context}}
+    {{range $index, $value := . }}
+        <h{{$.hlevel}}>{{partial "icon" $index}}{{$index}}</h{{$.hlevel}}>
+        {{if reflect.IsMap $value}}
+            <table>
+            {{$nontrivials := slice}}
+            {{range $k, $v := $value}}
+                {{if eq (printf "%T" $v) "string"}}
+                <tr>
+                    <td>{{partial "icon-or-text" $k}}</td>
+                    <td>{{$v}}</td>
+                </tr>
+                {{else}}
+                    {{$nontrivials = append (dict $k $v) $nontrivials}}
+                {{end}}
+            {{end}}
+            </table>
+            {{range $k, $v := $nontrivials}}
+                {{partial "data" (dict "context" . "hlevel" (add $.hlevel 1)) }}
+            {{end}}
+
+        {{else if (reflect.IsSlice $value)}}
+        <ul>
+            {{range $k, $v := $value}}
+            <li>{{$v}}</li>
+            {{end}}
+
+        </ul>
+        {{end}}
+
+    {{end}}
+{{end}}{{end}}
