@@ -1,0 +1,3 @@
+{{ with resources.GetMatch (replaceRE "^|$" "*" .File.BaseFileName ) }}
+        <img src="{{.RelPermalink}}" style="--url: url({{.RelPermalink}})">
+{{ end }}

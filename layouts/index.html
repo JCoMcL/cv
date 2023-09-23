@@ -6,11 +6,17 @@
         {{partial "data" site.Data.me }}
     </address>
 
+    {{with .Site.GetPage "me"}}
+    <address>
+        {{.Content}}
+    </address>
+    {{end}}
+
     <table>
         {{range $v:= getCSV "," (printf "%s%s" "content/" (.Site.GetPage "languages").File.Path) }}
         <tr>
             <td>{{index $v 0}}</td>
-            <td><div class="bar {{partial "sanitize-class-name" (index $v 0)}}" style="width:{{mul (float (index $v 1)) 10 }}%"></div></td>
+            <td><div class="bar {{partial "sanitize-class-name" (index $v 0)}}" style="--val:{{mul (float (index $v 1)) 10 }}%"></div></td>
         </tr>
         {{end}}
     </table>
@@ -19,7 +25,7 @@
 <main>
     {{ range where .Site.AllPages "File.Dir" "like" "tidbits" -}}
     <article>
-         {{ partial "icon" .File.BaseFileName }}
+         {{ partial "title-image"  .}}
          <h1> {{ .Title }}</h1>
          {{ .Content }}
     </article>

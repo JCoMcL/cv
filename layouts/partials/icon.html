@@ -1,3 +1,7 @@
 {{ with resources.GetMatch (replaceRE "^|$" "*" . ) }}
-    <img src="{{.RelPermalink}}" style="--url: url({{.RelPermalink}})">
+    {{if eq .MediaType.SubType "svg"}}
+        {{partial "svg-icon" .}}
+    {{else}}
+        {{partial "img-icon" .}}
+    {{end}}
 {{ end }}
