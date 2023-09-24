@@ -7,7 +7,8 @@
     --tone5: #212731;
     --tone6: #0a1114;
 
-    --accent: #2e96ff;
+    --accent0: #004b96;
+    --accent1: #002f5e;
 
     background-color: #fff;
     color: var(--tone5);
@@ -129,11 +130,17 @@ ul {
 address {
     font-style: normal;
 }
+
 a {
+    color: var(--accent0);
     display:flex;
     text-decoration: none;
     gap: .3em;
 }
+a .icon {
+    color: var(--tone5);
+}
+
 a span {
     text-decoration: underline;
 }
