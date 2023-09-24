@@ -1,0 +1,9 @@
+{{ $out := "" }}
+
+{{ with .Param "image" }} {{ with partial "find-resource" . }}
+    {{ $out = .}}
+{{end}}{{else}} {{ with resources.GetMatch (replaceRE "^|$" ".*" .File.BaseFileName ) }}
+    {{ $out = .}}
+{{end}}{{end}}
+
+{{ return $out }}
