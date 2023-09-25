@@ -1,5 +1,7 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "{{ replaceRE `^\d+-` "" .Name | title }}"
 subtitle: 
-draft: true
+image:
+accent0:
+accent1:
 ---

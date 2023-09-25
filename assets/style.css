@@ -50,9 +50,14 @@ h1 {
     display: block;
 }
 h2 {
+    /*
+    position: relative;
+    left: .5em;
+    */
     font-size: 1.1em;
-    font-style: normal;
+    font-weight: normal;
     margin: 0px;
+    color: var(--tone4);
 }
 
 img {
@@ -78,7 +83,8 @@ img::before {
 }
 
 /* title image */
-article > img:first-child {
+hgroup img
+{
     height: 5em;
     shape-margin: 10px;
     float: left;
