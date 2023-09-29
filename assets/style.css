@@ -16,6 +16,7 @@
 
 body {
     display: flex;
+    flex-wrap: wrap;
     gap: .8em;
 }
 
@@ -40,7 +41,12 @@ body > * > * {
 } 
 
 .side-content{
-    width: 18em;
+    flex-basis: 18em;
+    flex-grow: 1;
+}
+main {
+    flex-basis: 24em;
+    flex-grow: 100;
 }
 
 h1 {

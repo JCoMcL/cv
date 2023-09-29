@@ -5,6 +5,6 @@
 
 ---
 
-- {{< a "github.com/jcomcl" "(personal)">}}
-- {{< a "github.com/conwaj24" "(college)">}}
+- {{< a "https://github.com/jcomcl" "(personal)">}}
+- {{< a "https://github.com/conwaj24" "(college)">}}
 
