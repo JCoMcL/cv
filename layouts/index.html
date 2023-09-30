@@ -1,6 +1,4 @@
 {{ define "main" -}}
-
-
 <div class="side-content">
     {{with .Site.GetPage "me"}}
     <address>
@@ -8,14 +6,12 @@
     </address>
     {{end}}
 
-    <table>
-        {{range $v:= getCSV "," (printf "%s%s" "content/" (.Site.GetPage "languages").File.Path) }}
-        <tr>
-            <td>{{index $v 0}}</td>
-            <td><div class="bar {{partial "sanitize-class-name" (index $v 0)}}" style="--val:{{mul (float (index $v 1)) 10 }}%"></div></td>
-        </tr>
-        {{end}}
-    </table>
+    {{with .Site.GetPage "languages"}}
+    <div>
+        {{.Content}}
+    </div>
+    {{end}}
+
 </div>
 
 <main>

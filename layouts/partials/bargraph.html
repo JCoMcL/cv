@@ -1,0 +1,8 @@
+<table>
+    {{range $v:= . }}
+    <tr>
+        <td>{{index $v 0}}</td>
+        <td><div class="bar {{partial "sanitize-class-name" (index $v 0)}}" style="--val:{{mul (float (index $v 1)) 10 }}%"></div></td>
+    </tr>
+    {{end}}
+</table>

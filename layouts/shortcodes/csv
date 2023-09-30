@@ -1,0 +1,1 @@
+{{ apply (split (trim .Inner "\n") "\n") "split" "." "," | partial (.Get 0)}}

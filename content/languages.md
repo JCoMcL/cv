@@ -1,10 +1,22 @@
-Python,7
+# Skills
+{{< csv bargraph >}}
+Python,8.5
+JavaScript,7
 Java,5
 C#,4
-HTML/CSS,8
-JavaScript,7
 C,8
 C++,6
-SQL,4
-Go,5
+HTML/CSS,8
 Shell,9
+Go,3.5
+{{< /csv >}}
+
+## And also
+
+{{< csv bargraph >}}
+Nix/NixOS,6.5
+Makefile,8
+SQL,4
+Jenkins,2
+Ansible,4
+{{< /csv >}}

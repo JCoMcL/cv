@@ -26,7 +26,6 @@ body > * {
     gap: .5em;
 }
 body > * > * {
-    box-shadoxdw: var(--drop-shadow);
     background: var(--tone0);
 
     border-width: 1px;
@@ -56,14 +55,14 @@ h1 {
     display: block;
 }
 h2 {
-    /*
-    position: relative;
-    left: .5em;
-    */
     font-size: 1.1em;
-    font-weight: normal;
-    margin: 0px;
+    margin: .5em 0 .1em 0;
+}
+
+hgroup > h2 { /* subheading */
     color: var(--tone4);
+    font-weight: normal;
+    margin: 0;
 }
 
 img {
