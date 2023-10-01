@@ -23,7 +23,9 @@ body {
 
 body > * {
     display: flex;
-    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: stretch;
     gap: .5em;
 }
 body > * > * {
@@ -42,11 +44,25 @@ body > * > * {
 
 .side-content{
     flex-basis: 18em;
+    flex-direction: column;
     flex-grow: 1;
 }
 main {
     flex-basis: 24em;
+    flex-wrap: wrap;
     flex-grow: 100;
+}
+main > article {
+    flex-basis: 30em;
+    flex-grow: 1;
+}
+main > .project {
+    flex-basis: 12em;
+    flex-shrink: 2;
+    flex-grow: 1
+}
+main > h1 {
+    width: 100%
 }
 
 h1 {
@@ -58,7 +74,7 @@ h1 {
 }
 h2 {
     font-size: 1.1em;
-    margin: .5em 0 .1em 0;
+    margin: 0;
 }
 
 hgroup > h2 { /* subheading */
@@ -98,10 +114,18 @@ td:first-child {
 }
 
 /* project card */
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .project > hgroup{
     display: flex;
     justify-content: space-between;
 
+}
+.project p {
+    padding: 0 .5em;
 }
 .stars{
     color: var(--tone4);
@@ -129,7 +153,10 @@ td:first-child {
 }
 
 .stacked-bargraph {
-    display: flex
+    display: flex;
+    margin: .3em  .5em 0 .5em;
+    float: bottom;
+
 }
 .stacked-bargraph > div {
     flex-grow: var(--val);
@@ -138,8 +165,6 @@ td:first-child {
     border: solid;
     border-width: 1px;
     border-right-width: 0;
-
-
 }
 .stacked-bargraph > div:first-child {
 	border-radius: 1em 0 0 1em;

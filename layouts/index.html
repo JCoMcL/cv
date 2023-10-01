@@ -30,11 +30,12 @@
         </article>
     {{end }}
 
+    <h1>Projects</h1>
     {{ range where .Site.AllPages "File.Dir" "like" "projects" -}}
         <div class="project card">
             <hgroup>
                 {{ partial "title-image" .}}
-                <a href={{.Params.p_url}} > <h1>{{.Title}}</h1> </a>
+                <a href={{.Params.p_url}} > <h2>{{.Title}}</h2> </a>
                 {{with index ( getJSON .Params.api ) "stargazers_count"}}
                     <div class="stars">{{partial "icon" "star"}}{{.}}</div>
                 {{end}}
