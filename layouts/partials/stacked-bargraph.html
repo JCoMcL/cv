@@ -1,0 +1,5 @@
+<figure class="stacked-bargraph">
+    {{range $k, $v:= . }}
+        <div class="{{partial "sanitize-class-name" $k}}" style="--val:{{$v}}"></div>
+    {{end}}
+</figure>

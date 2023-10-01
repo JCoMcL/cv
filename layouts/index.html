@@ -29,6 +29,20 @@
             {{ .Content }}
         </article>
     {{end }}
+
+    {{ range where .Site.AllPages "File.Dir" "like" "projects" -}}
+        <div class="project card">
+            <hgroup>
+                {{ partial "title-image" .}}
+                <a href={{.Params.p_url}} > <h1>{{.Title}}</h1> </a>
+                {{with index ( getJSON .Params.api ) "stargazers_count"}}
+                    <div class="stars">{{partial "icon" "star"}}{{.}}</div>
+                {{end}}
+            </hgroup>
+            {{ .Content }}
+            {{printf "%s/%s" .Params.api "languages" | getJSON | partial "stacked-bargraph"}}
+        </div>
+    {{end }}
 </main>
 
 {{- end }}

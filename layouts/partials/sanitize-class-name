@@ -1,1 +1,1 @@
-{{ replace . "+" "p" | replaceRE "#" "Sharp" | replaceRE "/.*$" "" }}
+{{ replace . "+" "p" | replaceRE "#" "Sharp" | replaceRE "/.*$" "" | replaceRE "Jenkins" "Groovy" | replaceRE "Ansible" "YAML" }}
