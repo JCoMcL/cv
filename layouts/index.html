@@ -15,7 +15,7 @@
 </div>
 
 <main>
-    {{ range where .Site.AllPages "File.Dir" "like" "tidbits" -}}
+    {{ range where (sort .Site.AllPages.ByLinkTitle "File.Path") "File.Dir" "like" "tidbits" -}}
         {{$P:=.Params}}
         <article {{with $P.accent0}} style="--accent0:{{.}}{{with $P.accent1}};--accent1:{{.}}{{end}}"{{end}}>
             <hgroup>
@@ -31,7 +31,7 @@
     {{end }}
 
     <h1>Projects</h1>
-    {{ range where .Site.AllPages "File.Dir" "like" "projects" -}}
+    {{ range where (sort .Site.AllPages "File.Path") "File.Dir" "like" "projects" -}}
         <div class="project card">
             <hgroup>
                 {{ partial "title-image" .}}

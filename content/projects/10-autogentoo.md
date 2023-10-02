@@ -4,4 +4,4 @@ p_url: "https://github.com/jcomcl/autogentoo"
 api: "https://api.github.com/repos/jcomcl/autogentoo"
 image: ""
 ---
-Turns an infamously difficult Linux distro into the easiest with a variety of build, cloud, and system automation tools.
+Turns an infamously difficult Linux distro into the easiest using a variety of build, cloud, and system automation tools.
