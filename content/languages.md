@@ -6,7 +6,6 @@ Java,5
 C#,4
 C,8
 C++,6
-HTML/CSS,8
 Shell,9
 Go,3.5
 {{< /csv >}}
@@ -14,6 +13,8 @@ Go,3.5
 ## And also
 
 {{< csv bargraph >}}
+HTML,7.8
+CSS,8.4
 Nix/NixOS,6.5
 Makefile,8
 SQL,4
