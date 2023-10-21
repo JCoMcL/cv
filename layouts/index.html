@@ -32,13 +32,26 @@
 
     <h1>Projects</h1>
     {{ range where (sort .Site.AllPages "File.Path") "File.Dir" "like" "projects" -}}
+        {{$url:=.Params.p_url}}
         <div class="project card">
             <hgroup>
                 {{ partial "title-image" .}}
                 <a href={{.Params.p_url}} > <h2>{{.Title}}</h2> </a>
-                {{with .Params.api }} {{with index ( getJSON . ) "stargazers_count"}}
-                    <div class="stars">{{partial "icon" "star"}}{{.}}</div>
-                {{end}}{{end}}
+                {{with .Params.api }}
+                    {{with index ( getJSON . ) "stargazers_count"}}
+                        <div class="stars">{{partial "icon" "star"}}{{.}}</div>
+                    {{end}}
+
+                    {{$api:= .}}
+                    {{if strings.Contains $api "gitlab" }} {{/* thankfully github and gitlab APIs are almost identical */}}
+                        {{$api = printf "%s/%s" $api "repository"}}
+                    {{end}}
+                    {{with printf "%s/%s" $api "contributors" | getJSON | len}}
+                        {{if compare.Gt . 1}}
+                            <a href={{printf "%s/%s" $url "contributors"}} class="stars">{{partial "icon" "people"}}{{.}}</a>
+                        {{end}}
+                    {{end}}
+                {{end}}
             </hgroup>
             {{ .Content }}
             {{with .Params.api}}{{printf "%s/%s" . "languages" | getJSON | partial "stacked-bargraph"}}{{end}}
