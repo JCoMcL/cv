@@ -36,12 +36,12 @@
             <hgroup>
                 {{ partial "title-image" .}}
                 <a href={{.Params.p_url}} > <h2>{{.Title}}</h2> </a>
-                {{with index ( getJSON .Params.api ) "stargazers_count"}}
+                {{with .Params.api }} {{with index ( getJSON . ) "stargazers_count"}}
                     <div class="stars">{{partial "icon" "star"}}{{.}}</div>
-                {{end}}
+                {{end}}{{end}}
             </hgroup>
             {{ .Content }}
-            {{printf "%s/%s" .Params.api "languages" | getJSON | partial "stacked-bargraph"}}
+            {{with .Params.api}}{{printf "%s/%s" . "languages" | getJSON | partial "stacked-bargraph"}}{{end}}
         </div>
     {{end }}
 </main>

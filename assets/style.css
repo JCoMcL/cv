@@ -57,7 +57,7 @@ main > article {
     flex-grow: 1;
 }
 main > .project {
-    flex-basis: 12em;
+    flex-basis: 16em;
     flex-shrink: 2;
     flex-grow: 1
 }
