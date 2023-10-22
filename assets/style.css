@@ -14,12 +14,12 @@
     color: var(--tone5);
 }
 
+/* layout rules */
 body {
     display: flex;
     flex-wrap: wrap;
     gap: .8em;
 }
-
 body > * {
     display: flex;
     align-content: flex-start;
@@ -27,20 +27,6 @@ body > * {
     align-items: stretch;
     gap: .5em;
 }
-body > * > * {
-    background: var(--tone0);
-
-    border-width: 1px;
-    border-radius: 0 .3em .3em 0;
-    border-color: var(--tone3);
-    border-style: solid;
-
-    border-left-width: .3em;
-    border-left-color: var(--tone4);
-
-    padding: 6px;
-} 
-
 .side-content{
     flex-basis: 18em;
     flex-direction: column;
@@ -60,7 +46,6 @@ main > .project {
     flex-shrink: 2;
     flex-grow: 1
 }
-
 
 h1 {
     font-size: 1.4em;
@@ -150,28 +135,7 @@ a small {
     font-style: italic;
 }
 
-/* project card */
-.project {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.project > hgroup{
-    display: flex;
-    justify-content: space-between;
-
-}
-.project p {
-    padding: 0 .5em;
-}
-.stars{
-    color: var(--tone4);
-    gap: .2em;
-    display: flex;
-    align-items: baseline;
-}
-
-/* bar graph */
+/* bar-graph */
 .bar::before {
     position: absolute;
     top: -1px;
@@ -193,7 +157,6 @@ a small {
     display: flex;
     margin: .3em  .5em 0 .5em;
     float: bottom;
-
 }
 .stacked-bargraph > div {
     flex-grow: var(--val);
@@ -211,3 +174,38 @@ a small {
 	border-width: 1px;
 }
 
+/* --CARD STYLES-- */
+/* default card */
+body > * > * {
+    background: var(--tone0);
+
+    border-width: 1px;
+    border-radius: 0 .3em .3em 0;
+    border-color: var(--tone3);
+    border-style: solid;
+
+    border-left-width: .3em;
+    border-left-color: var(--tone4);
+
+    padding: 6px;
+}
+
+/* project card */
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.project > hgroup{
+    display: flex;
+    justify-content: space-between;
+}
+.project p {
+    padding: 0 .5em;
+}
+.stars{
+    color: var(--tone4);
+    gap: .2em;
+    display: flex;
+    align-items: baseline;
+}
