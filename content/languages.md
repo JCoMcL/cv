@@ -1,3 +1,6 @@
+---
+accent0: "#89e051"
+---
 # Skills
 {{< csv bargraph >}}
 Python,8.5

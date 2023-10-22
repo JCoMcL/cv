@@ -1,13 +1,13 @@
 {{ define "main" -}}
 <div class="side-content">
     {{with .Site.GetPage "me"}}
-    <address>
+    <address class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
         {{.Content}}
     </address>
     {{end}}
 
     {{with .Site.GetPage "languages"}}
-    <div>
+    <div class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
         {{.Content}}
     </div>
     {{end}}
@@ -16,8 +16,7 @@
 
 <main>
     {{ range where (sort .Site.AllPages.ByLinkTitle "File.Path") "File.Dir" "like" "tidbits" -}}
-        {{$P:=.Params}}
-        <article {{with $P.accent0}} style="--accent0:{{.}}{{with $P.accent1}};--accent1:{{.}}{{end}}"{{end}}>
+        <article {{ partial "accent-colors" .Params | safeHTMLAttr}}>
             <hgroup>
                 {{ partial "title-image" .}}
                 <h1> {{ .Title }}</h1>
