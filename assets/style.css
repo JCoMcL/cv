@@ -176,18 +176,60 @@ a small {
 
 /* --CARD STYLES-- */
 /* default card */
-body > * > * {
-    background: var(--tone0);
-
-    border-width: 1px;
-    border-radius: 0 .3em .3em 0;
-    border-color: var(--tone3);
-    border-style: solid;
-
-    border-left-width: .3em;
-    border-left-color: var(--tone4);
-
+.card{
     padding: 6px;
+}
+.side-content > * {
+    position: relative;
+
+    --size: .5em;
+    margin: var(--size);
+    filter: drop-shadow(0px 0px 2px #000);
+}
+.side-content > *::after,.side-content > *::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+
+    --outset: calc(0px - var(--size));
+    top: var(--outset);
+    right: var(--outset);
+    bottom:  var(--outset);
+    left: var(--outset);
+
+    --clip-scale: .6;
+    --rotate-scale: .8;
+}
+.side-content> *::before{
+    background: var(--tone0);
+    transform: rotate(calc( 4deg * var(--r1) * var(--rotate-scale) ));
+
+    clip-path: polygon(
+        calc(0%   + var(--size) * var(--r2) * var(--clip-scale))
+        calc(0%   + var(--size) * var(--r3) * var(--clip-scale)),
+        calc(100% - var(--size) * var(--r4) * var(--clip-scale))
+        calc(0%   + var(--size) * var(--r5) * var(--clip-scale)),
+        calc(100% - var(--size) * var(--r6) * var(--clip-scale))
+        calc(100% - var(--size) * var(--r7) * var(--clip-scale)),
+        calc(0%   + var(--size) * var(--r8) * var(--clip-scale))
+        calc(100% - var(--size) * var(--r9) * var(--clip-scale))
+    );
+}
+.side-content > *::after{
+    z-index: -2;
+    background: var(--accent0);
+    transform: rotate(calc( -4deg * var(--r10) * var(--rotate-scale) ));
+
+    clip-path: polygon(
+        calc(0%   + var(--size) * var(--r11) * var(--clip-scale))
+        calc(0%   + var(--size) * var(--r12) * var(--clip-scale)),
+        calc(100% - var(--size) * var(--r13) * var(--clip-scale))
+        calc(0%   + var(--size) * var(--r14) * var(--clip-scale)),
+        calc(100% - var(--size) * var(--r15) * var(--clip-scale))
+        calc(100% - var(--size) * var(--r16) * var(--clip-scale)),
+        calc(0%   + var(--size) * var(--r17) * var(--clip-scale))
+        calc(100% - var(--size) * var(--r18) * var(--clip-scale))
+    );
 }
 
 /* project card */
@@ -195,6 +237,10 @@ body > * > * {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    border: 1px solid var(--tone4);
+    border-radius: 3px;
+
 }
 .project > hgroup{
     display: flex;

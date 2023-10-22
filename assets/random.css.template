@@ -1,0 +1,7 @@
+{{range $i := collections.Seq 10}}
+:nth-child({{$i}}){
+    {{range $j := collections.Seq 18}}
+	--r{{$j}}:{{div (index (collections.Seq 100 | collections.Shuffle) 0) 100.0}};
+    {{end}}
+}
+{{end}}
