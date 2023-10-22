@@ -192,6 +192,15 @@ a .icon {
     color: var(--tone5);
 }
 
+p > a {
+    display:inline-flex;
+    gap: .1em;
+}
+p > a .icon {
+    height: 1em;
+    width: 1em;
+}
+
 a span {
     text-decoration: underline;
 }
