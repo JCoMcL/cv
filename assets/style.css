@@ -18,7 +18,8 @@
 body {
     display: flex;
     flex-wrap: wrap;
-    gap: .8em;
+    gap: 1em;
+    padding: 0.4em;
 }
 body > * {
     display: flex;
@@ -31,6 +32,7 @@ body > * {
     flex-basis: 18em;
     flex-direction: column;
     flex-grow: 1;
+    gap: inherit;
 }
 main {
     flex-basis: 24em;
@@ -109,7 +111,7 @@ address {
 
 /* links */
 a {
-    color: var(--accent0);
+    color: var(--accent1);
     display:flex;
     text-decoration: none;
     gap: .3em;
@@ -176,17 +178,22 @@ a small {
 
 /* --CARD STYLES-- */
 /* default card */
-.card{
+.card {
     padding: 6px;
-}
-.side-content > * {
     position: relative;
 
-    --size: .5em;
-    margin: var(--size);
-    filter: drop-shadow(0px 0px 2px #000);
+    filter: drop-shadow( 1px  1px 0px var(--tone2))
+            drop-shadow( 1px -1px 0px var(--tone2))
+            drop-shadow(-1px  1px 0px var(--tone2))
+            drop-shadow(-1px -1px 0px var(--tone2));
+
+    --size: .2em;
+    margin: calc( var(--size));
+
+    --clip-scale: 1;
+    --rotate-scale: 1;
 }
-.side-content > *::after,.side-content > *::before{
+.card::after,.card::before{
     content: '';
     position: absolute;
     z-index: -1;
@@ -197,11 +204,9 @@ a small {
     bottom:  var(--outset);
     left: var(--outset);
 
-    --clip-scale: .6;
-    --rotate-scale: .8;
 }
-.side-content> *::before{
-    background: var(--tone0);
+.card::before{
+    background: white;
     transform: rotate(calc( 4deg * var(--r1) * var(--rotate-scale) ));
 
     clip-path: polygon(
@@ -215,7 +220,7 @@ a small {
         calc(100% - var(--size) * var(--r9) * var(--clip-scale))
     );
 }
-.side-content > *::after{
+.card::after{
     z-index: -2;
     background: var(--accent0);
     transform: rotate(calc( -4deg * var(--r10) * var(--rotate-scale) ));
@@ -232,15 +237,32 @@ a small {
     );
 }
 
+article.card{
+    --size: .4em;
+    --clip-scale: 0;
+    --rotate-scale: 0.25;
+}
+
+.side-content .card{
+    --rotate-scale: .5;
+    --clip-scale: 1;
+}
+.side-content .card::after{
+    --clip-scale: 0;
+    --rotate-scale: 1.4;
+}
+
 /* project card */
 .project {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    border: 1px solid var(--tone4);
-    border-radius: 3px;
+    --accent0: var(--language-color);
 
+    --size: 0.6em;
+    --clip-scale: 1;
+    --rotate-scale: .2;
 }
 .project > hgroup{
     display: flex;
