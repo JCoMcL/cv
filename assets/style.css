@@ -12,6 +12,13 @@
 
     background-color: #fff;
     color: var(--tone5);
+
+    --border-width: 1px;
+    --border-color: var(--tone2);
+    --filter-border: drop-shadow( var(--border-width)  var(--border-width) 0px var(--border-color))
+                     drop-shadow( var(--border-width) calc(0px - var(--border-width)) 0px var(--border-color))
+                     drop-shadow(calc(0px - var(--border-width))  var(--border-width) 0px var(--border-color))
+                     drop-shadow(calc(0px - var(--border-width)) calc(0px - var(--border-width)) 0px var(--border-color));
 }
 
 /* layout rules */
@@ -56,8 +63,34 @@ h1 {
     padding-left: .5em;
     display: block;
 }
-main > h1 { /* section heading */
-    width: 100%
+
+ /* section heading */
+ main > h1 {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 0.3em;
+
+    /* I wonder why no-one ever thought to add and outer-outline feature to CSS */
+    text-shadow: 5px  2px 0 white,
+                -5px  2px 0 white,
+                 0    2px 0 white,
+                 5px -1px 0 white,
+                -5px -1px 0 white;
+                 0   -1px 0 white;
+
+    position: relative;
+}
+main > h1::after {
+    position: absolute;
+    content: ' ';
+    display: block;
+    left: 20%;
+    right: 20%;
+    bottom: 0;
+
+    z-index: -1;
+    border: 2px solid var(--tone2);
 }
 
 h2 {
@@ -181,11 +214,7 @@ a small {
 .card {
     padding: 6px;
     position: relative;
-
-    filter: drop-shadow( 1px  1px 0px var(--tone2))
-            drop-shadow( 1px -1px 0px var(--tone2))
-            drop-shadow(-1px  1px 0px var(--tone2))
-            drop-shadow(-1px -1px 0px var(--tone2));
+    filter: var(--filter-border);
 
     --size: .2em;
     margin: calc( var(--size));
