@@ -33,7 +33,7 @@ body > * {
     align-content: flex-start;
     justify-content: flex-start;
     align-items: stretch;
-    gap: .5em;
+    gap: .8em;
 }
 .side-content{
     flex-basis: 18em;
@@ -70,6 +70,7 @@ h1 {
     font-size: 1.5em;
     text-align: center;
     margin-top: 0.3em;
+    padding-left: 0;
     /* I wonder why no-one ever thought to add and outer-outline feature to CSS */
     text-shadow: 5px  2px 0 white,
                 -5px  2px 0 white,
@@ -99,19 +100,19 @@ h2 {
 hgroup > h2 { /* subheading */
     color: var(--tone4);
     font-weight: normal;
-    margin: 0;
 }
 
 hgroup img /* title image */
 {
     height: 5em;
-    shape-margin: 10px;
+    shape-margin: 1em;
+    margin: 0.5em;
     float: left;
     shape-outside: var(--url);
 }
 
 p {
-    padding: 0 1em;
+    padding: 1em;
     margin: 0;
     text-align: justify;
 }
@@ -271,7 +272,7 @@ article.card{
 }
 
 .side-content .card{
-    --rotate-scale: .5;
+    --rotate-scale: .3;
     --clip-scale: 1;
 }
 .side-content .card::after{
@@ -296,7 +297,7 @@ article.card{
     justify-content: space-between;
 }
 .project p {
-    padding: 0 .5em;
+    padding: .15em .5em;
 }
 .stars{
     color: var(--tone4);
