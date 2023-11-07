@@ -5,4 +5,4 @@ image: "dcu"
 accent1: "#00275D"
 accent0: "#FFB031"
 ---
-*Computer Applications* was far more **holistic** and **modern** than a typical Computer Science course, and maintained a strong emphasis on current **industry demands**. Alongside the CS classics (**compilers**, **automata**, **calc.**, etc.) I learned things like **dev-ops**, **refactoring**, **critical-thinking**, and **communication**, and had actual **work placement** as a programmer.
+A modern and holistic course with a particular emphasis on supporting current **industry demands**. It incorporates subjects such as **dev-ops**, **refactoring**, **critical-thinking**, and **communication** alongside the *computer science* classics. This course included a 3-month **work placement** as a programmer where I worked on optimization of the CI/CD pipelines and advocated for and implemented the automation of release notes.

@@ -7,4 +7,3 @@
 
 - {{< a "https://github.com/jcomcl" "(personal)">}}
 - {{< a "https://github.com/conwaj24" "(college)">}}
-
