@@ -30,7 +30,7 @@
     {{if not $text}} {{$text = . }} {{end}}
 {{else}} {{with index ($url | findRESubmatch `([a-z]+://)([A-Za-z0-9.\-]+)(/[^ /]+)*`) 0 }}
         {{$img = (index . 2 | printf "%s%s/favicon.ico" (index . 1) | resources.GetRemote | partial "img-icon" )}}
-        {{if not $text}} {{$text = (printf "%s%s" (index . 2) (index . 3) )}} {{end}}
+        {{if not $text}} {{$text = (printf "%s%s" (index . 2) (index . 3)) }} {{end}}
 {{end}}
 {{end}}
 {{end}}
@@ -40,3 +40,4 @@
     <span>{{$text}}</span>
     {{with $sup}}<small>{{$sup}}</small>{{end}}
 </a>
+{{- "" -}}
