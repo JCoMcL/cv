@@ -208,6 +208,24 @@ a small {
 	border-width: 1px;
 }
 
+.stacked-bargraph+ul {
+    list-style: none;
+    margin: 0;
+}
+.stacked-bargraph+ul li{
+    display: inline-block;
+    font-size: 0.9em;
+}
+.stacked-bargraph+ul li::before {
+    content: "\26ab";
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--tone5);
+
+    color: var(--language-color);
+
+
+}
+
 /* --CARD STYLES-- */
 /* default card */
 .card {

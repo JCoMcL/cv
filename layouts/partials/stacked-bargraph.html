@@ -1,5 +1,12 @@
 <figure class="stacked-bargraph">
+    {{$sum := 0 }}
     {{range $k, $v:= . }}
         <div class="{{partial "sanitize-class-name" $k}}" style="--val:{{$v}}"></div>
+        {{$sum = add $sum $v}}
     {{end}}
+
 </figure>
+<ul> {{range $k, $v:= . }}
+    <li class="{{partial "sanitize-class-name" $k}}">{{$k}} <small>{{div $v $sum | mul 100 | printf "%.0f%%" }}</small></li>
+{{end}} </ul>
+
