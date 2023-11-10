@@ -5,5 +5,5 @@
 
 ---
 
-- {{< a "https://github.com/jcomcl" "(personal)">}}
-- {{< a "https://github.com/conwaj24" "(college)">}}
+- {{< a url="https://github.com/jcomcl" sup="(personal)">}}
+- {{< a url="https://github.com/conwaj24" sup="(college)">}}

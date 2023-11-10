@@ -1,28 +1,42 @@
-{{with index (.Get 0 | findRESubmatch `([^0-9]?[0-9]{1,3}[^0-9]*)?([0-9]{2,3})[^0-9]*([0-9]{3})[^0-9]*([0-9]{4})`) 0 }}
-    <a href="tel:{{index . 0}}">
-        {{partial "icon" "phone"}}
-        <span>
-            {{if eq	(len .) 5}}
-                ({{index . 1}}) {{index . 2}} {{index . 3}} {{index . 4}}
-            {{else}}
-                {{index . 0}} {{index . 2}} {{index . 3}}
-            {{end}}
-        </span>
-        {{with $.Get 1}} <small>{{.}} {{end}}
-    </a>
-{{else}} {{with index (.Get 0 | findRE `[!-?A-~]+@[A-Za-z0-9\-.]+`) 0 }}
-    <a href="mailto:{{.}}">
-        {{partial "icon" "email"}}
-        <span>{{.}}</span>
-        {{with $.Get 1}} <small>{{.}}</small> {{end}}
-    </a>
-{{else}} {{with index (.Get 0 | findRESubmatch `([a-z]+://)([A-Za-z0-9.\-]+)(/[^ /]+)*`) 0 }}
-    <a href="{{index . 0}}">
-        {{index . 2 | printf "%s%s/favicon.ico" (index . 1) | resources.GetRemote | partial "img-icon" }}
-        <span>{{index . 2}}{{index . 3}}</span>
-        {{with $.Get 1}} <small>{{.}}</small> {{end}}
-    </a>
+{{ $url := "" }}
+{{ $text := "" }}
+{{ $sup := "" }}
+{{ $img := "" }}
+{{ if .IsNamedParams }}
+    {{ $url = .Get "url" }}
+    {{ $text = .Get "text" }}
+    {{ $sup = .Get "sup" }}
+    {{ $img = .Get "img" }}
+{{ else }}
+    {{ $url = .Get 0 }}
+    {{ $text = .Get 1 }}
+    {{ $sup = .Get 2 }}
+    {{ $img = .Get 3 }}
+{{end}}
 
+{{with index ($url | findRESubmatch `([^0-9]?[0-9]{1,3}[^0-9]*)?([0-9]{2,3})[^0-9]*([0-9]{3})[^0-9]*([0-9]{4})`) 0 }}
+    {{$url = safeURL (printf "tel:%s" $url )}}
+    {{$img = (partial "icon" "phone")}}
+    {{if not $text}}
+        {{if eq (len .) 5}}
+            {{$text = printf "(%s) %s %s %s" (index . 1) (index . 2) (index . 3) (index . 4) }}
+        {{else}}
+            {{$text = printf "%s %s %s" (index . 0) (index . 2) (index . 3) }}
+        {{end}}
+    {{end}}
+{{else}} {{with index ($url | findRE `[!-?A-~]+@[A-Za-z0-9\-.]+`) 0 }}
+    {{$url = safeURL (printf "mailto:%s" . )}}
+    {{$img = (partial "icon" "email")}}
+    {{if not $text}} {{$text = . }} {{end}}
+{{else}} {{with index ($url | findRESubmatch `([a-z]+://)([A-Za-z0-9.\-]+)(/[^ /]+)*`) 0 }}
+        {{$img = (index . 2 | printf "%s%s/favicon.ico" (index . 1) | resources.GetRemote | partial "img-icon" )}}
+        {{if not $text}} {{$text = (printf "%s%s" (index . 2) (index . 3) )}} {{end}}
 {{end}}
 {{end}}
-{{end}} 
+{{end}}
+
+<a href="{{$url}}">
+    {{with $img}}{{$img}}{{end}}
+    <span>{{$text}}</span>
+    {{with $sup}}<small>{{$sup}}</small>{{end}}
+</a>
