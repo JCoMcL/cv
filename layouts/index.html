@@ -6,6 +6,13 @@
     </address>
     {{end}}
 
+    {{with .Site.GetPage "blurb"}}
+    <div class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
+        <hgroup> {{partial "find-title-image" . | partial "svg-icon" }} </hgroup>
+        {{.Content}}
+    </div>
+    {{end}}
+
     {{with .Site.GetPage "languages"}}
     <div class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
         {{.Content}}

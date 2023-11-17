@@ -102,13 +102,23 @@ hgroup > h2 { /* subheading */
     font-weight: normal;
 }
 
-hgroup img /* title image */
+hgroup img, /* title image */
+hgroup svg /* title image */
 {
     height: 5em;
     shape-margin: 1em;
     margin: 0.5em;
     float: left;
     shape-outside: var(--url);
+}
+
+.side-content hgroup img, /* title image */
+.side-content hgroup svg /* title image */
+{
+    height: 4em;
+    width: auto;
+    margin-top: 1em;
+    color: var(--accent0);
 }
 
 p {
