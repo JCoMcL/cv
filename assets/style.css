@@ -241,13 +241,18 @@ a small {
 .card {
     padding: 6px;
     position: relative;
-    filter: var(--filter-border);
 
     --size: .2em;
     margin: calc( var(--size));
 
     --clip-scale: 1;
     --rotate-scale: 1;
+}
+/* using filters rasterizes the output, which wreaks havoc on printing */
+@media screen {
+    .card{
+        filter: var(--filter-border);
+    }
 }
 .card::after,.card::before{
     content: '';
