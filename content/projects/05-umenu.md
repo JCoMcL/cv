@@ -8,4 +8,4 @@ image: ""
 
 ---
 
-A command-line menu tool. Handy for adding interactivity to shell scripts; I've incorporated it in about a dozen projects.
+A command-line menu tool. Handy for adding interactivity to shell scripts; I've applied it in about a dozen projects.
