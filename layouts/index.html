@@ -7,8 +7,7 @@
     {{end}}
 
     {{with .Site.GetPage "blurb"}}
-    <div class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
-        <hgroup> {{partial "find-title-image" . | partial "svg-icon" }} </hgroup>
+    <div id="blurb" class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
         {{.Content}}
     </div>
     {{end}}

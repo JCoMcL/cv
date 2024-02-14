@@ -298,6 +298,17 @@ a small {
     );
 }
 
+/*TODO express this relationship more clearly (will require proper IDs, probably) */
+.side-content>*:not(:first-child) h1{
+    text-align: center;
+    padding: 0;
+    padding-bottom: 0.4em;
+}
+.side-content p{
+	padding-top: 0;
+	padding-bottom: 0.2em;
+}
+
 article.card{
     --size: .4em;
     --clip-scale: 0;
