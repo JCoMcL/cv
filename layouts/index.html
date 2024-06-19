@@ -21,7 +21,7 @@
 </div>
 
 <main>
-    {{ range where (sort .Site.AllPages.ByLinkTitle "File.Path") "File.Dir" "like" "tidbits" -}}
+    {{ range where (sort .Site.RegularPages.ByTitle "File.Path") "File.Dir" "like" "tidbits" -}}
         <article class="card" {{ partial "accent-colors" .Params | safeHTMLAttr}}>
             <hgroup>
                 {{ partial "title-image" .}}
@@ -36,7 +36,7 @@
     {{end }}
 
     <h1>Some of my Projects</h1>
-    {{ range where (sort .Site.AllPages "File.Path") "File.Dir" "like" "projects" -}}
+    {{ range where (sort .Site.RegularPages "File.Path") "File.Dir" "like" "projects" -}}
         {{$url:=.Params.p_url}}
         {{$gitlab:= strings.Contains $url "gitlab"}}
         <div class="project card{{with .Params.classes}} {{.}}{{end}}">

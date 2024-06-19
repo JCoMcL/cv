@@ -227,10 +227,7 @@ a small {
     font-size: 0.9em;
 }
 .stacked-bargraph+ul li::before {
-    content: "\26ab";
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--tone5);
-
+    content: "◉";
     color: var(--language-color);
 
 
