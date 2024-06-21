@@ -1,7 +1,7 @@
 # Jordan Conway McLaughlin
 
 - {{< a "+353 877211277" >}}
-- {{< a "j@jcom.cl" >}}
+- {{< a "j@jcomcl.ie" >}}
 
 ---
 
