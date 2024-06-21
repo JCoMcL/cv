@@ -93,13 +93,15 @@ main > h1::after {
 }
 
 h2 {
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin: 0;
+    margin-top: 0.8em;
 }
 
-hgroup > h2 { /* subheading */
+hgroup h2 { /* subheading */
     color: var(--tone4);
     font-weight: normal;
+    margin-top: 0;
 }
 
 hgroup img, /* title image */
