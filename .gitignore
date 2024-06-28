@@ -3,3 +3,10 @@ resources
 *.disabled
 public
 static
+node_modules
+package-lock.json
+package.json
+tmp
+cv.pdf
+hugo.log
+hugo.pid
