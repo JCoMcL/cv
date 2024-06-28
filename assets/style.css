@@ -1,7 +1,7 @@
 :root {
     --tone0: #f0f2f4;
     --tone1: #d9dbde;
-    --tone2: #c6cccd;
+    --tone2: #b2c0c2;
     --tone3: #6c7683;
     --tone4: #3d4c60;
     --tone5: #212731;
@@ -10,7 +10,8 @@
     --accent0: #004b96;
     --accent1: #002f5e;
 
-    background-color: #fff;
+    --bg: #fff;
+    background-color: var(--bg);
     color: var(--tone5);
 
     --border-width: 1px;
@@ -27,6 +28,7 @@ body {
     flex-wrap: wrap;
     gap: 1em;
     padding: 0.4em;
+    font-family: Rubik;
 }
 body > * {
     display: flex;
@@ -72,12 +74,12 @@ h1 {
     margin-top: 0.3em;
     padding-left: 0;
     /* I wonder why no-one ever thought to add and outer-outline feature to CSS */
-    text-shadow: 5px  2px 0 white,
-                -5px  2px 0 white,
-                 0    2px 0 white,
-                 5px -1px 0 white,
-                -5px -1px 0 white;
-                 0   -1px 0 white;
+    text-shadow: 5px  2px 0 var(--bg),
+                -5px  2px 0 var(--bg),
+                 0    2px 0 var(--bg),
+                 5px -1px 0 var(--bg),
+                -5px -1px 0 var(--bg);
+                 0   -1px 0 var(--bg);
     position: relative;
 }
 main > h1::after {
@@ -197,7 +199,7 @@ a small {
     position: relative;
     height: .5em;
     border-radius: 1em;
-    background-color: var(--tone2);
+    background-color: var(--tone1);
 }
 .stacked-bargraph {
     display: flex;
