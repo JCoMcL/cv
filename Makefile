@@ -15,7 +15,7 @@ stop:
 	if test -e "hugo.pid"; then kill `<hugo.pid`; fi
 
 clean: stop
-	hugo --gc --ignoreCache
+	#hugo --gc --ignoreCache
 	rm -rf public
 
 FORCE:
