@@ -1,17 +1,16 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://localhost'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
-#theme = 'benis'
-#
+title = 'CV - Jordan Conway McLaughlin'
+
 [mediaTypes]
   [mediaTypes.'image/vnd.microsoft.icon']
       suffixes = ['ico']
 
-#Why this option exists is explained her: https://github.com/gohugoio/hugo/issues/9315#issuecomment-1000347317
-#it seems very niche and I don't believe it should be enabled by default
+#Why this option exists is explained here: https://github.com/gohugoio/hugo/issues/9315#issuecomment-1000347317
+# while it's an impressive dedication to security, this an insane threat model for almost any real user
 [security.exec]
 allow = ['.*']
-# security policy once again making life difficult for no damn reason
+# security policy once again making life difficult for no reason
 [security.http]
 methods = ['(?i)GET|POST']
 urls = ['.*']

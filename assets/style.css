@@ -233,8 +233,6 @@ a small {
 .stacked-bargraph+ul li::before {
     content: "◉";
     color: var(--language-color);
-
-
 }
 
 /* --CARD STYLES-- */
