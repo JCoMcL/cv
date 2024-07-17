@@ -1,1 +1,64 @@
-{{ (.Site.GetPage "cover-letter.md").Content}}
+{{ define "main" -}}
+<div class="side-content">
+    {{with .Site.GetPage "me"}}
+    <address class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
+        {{.Content}}
+    </address>
+    {{end}}
+
+    {{with .Site.GetPage "blurb"}}
+    <div id="blurb" class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
+        {{.Content}}
+    </div>
+    {{end}}
+
+    {{with .Site.GetPage "languages"}}
+    <div class="card" {{partial "accent-colors" .Params | safeHTMLAttr}}>
+        {{.Content}}
+    </div>
+    {{end}}
+
+</div>
+
+<main>
+    {{ range where (sort .Site.RegularPages.ByTitle "File.Path") "File.Dir" "like" "tidbits" -}}
+        <article class="card" {{ partial "accent-colors" .Params | safeHTMLAttr}}>
+            <hgroup>
+                {{ partial "title-image" .}}
+                <h1> {{ .Title }}</h1>
+                {{with .Params.subtitle}}
+                    <h2>{{.}}</h2>
+                {{end}}
+            </hgroup>
+
+            {{ .Content }}
+        </article>
+    {{end }}
+
+    <h1>Some of my Projects</h1>
+    {{ range where (sort .Site.RegularPages "File.Path") "File.Dir" "like" "projects" -}}
+        {{$url:=.Params.p_url}}
+        {{$gitlab:= strings.Contains $url "gitlab"}}
+        <div class="project card{{with .Params.classes}} {{.}}{{end}}">
+            <hgroup>
+                {{ partial "title-image" .}}
+                <a href={{.Params.p_url}} > <h2>{{.Title}}</h2> </a>
+                {{with .Params.api }}
+                    {{with index ( getJSON . ) "stargazers_count"}}
+                        <a href={{compare.Conditional $gitlab "-/starrers" "stargazers" | printf "%s/%s" $url }} class="stars">{{partial "icon" "star"}}{{.}}</a>
+                    {{end}}
+
+                    {{with compare.Conditional $gitlab "repository/contributors" "contributors" | printf "%s/%s" . | getJSON | len}}
+                        {{if compare.Gt . 1}}
+                            <a href={{compare.Conditional $gitlab "-/graphs/master" "contributors" | printf "%s/%s" $url }} class="stars">{{partial "icon" "people"}}{{.}}</a>
+                        {{end}}
+                    {{end}}
+                {{end}}
+            </hgroup>
+            {{ .Content }}
+            {{with .Params.api}}{{printf "%s/%s" . "languages" | getJSON | partial "stacked-bargraph"}}{{end}}
+        </div>
+    {{end }}
+</main>
+
+{{- end }}

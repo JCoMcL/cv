@@ -14,8 +14,6 @@
   {{- end }}
   <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
 
-  {{partial "stylesheet" "cover-letter.css" }}
-
   <!-- RSS etc -->
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
@@ -23,6 +21,7 @@
 
   {{ partial "hook_head_end.html" . }}
 </head>
-<body>
-{{ (.Site.GetPage "cover-letter.md").Content}}
-</body>
+  <body>
+    {{ block "main" . -}}{{- end }}
+  </body>
+</html>

@@ -24,6 +24,7 @@
 
 /* layout rules */
 body {
+    font-size: calc(14px * 0.97);
     display: flex;
     flex-wrap: wrap;
     gap: 1em;

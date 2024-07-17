@@ -22,14 +22,14 @@ cv.pdf: render.sh
 	${MAKE} hugo-url
 	./render.sh --pdf=$@ --url=`<hugo-url`
 
-cl.pdf: render.sh
+cl.pdf: render.sh content/cover-letter.md
 	ln -f `realpath layouts/cl.html` `realpath -m layouts/index.html`
 	${MAKE} restart-hugo
 	${MAKE} hugo-url
 	./render.sh --pdf=$@ --url=`<hugo-url`
 
 stop:
-	if test -e "hugo.pid"; then kill `<hugo.pid`; fi
+	if test -e "hugo.pid"; then kill `<hugo.pid` || rm -f hugo.pid hugo.log; fi
 	while test -e "hugo.log"; do sleep 0.1; done
 
 clean-hugo: stop
