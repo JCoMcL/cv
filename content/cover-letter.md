@@ -1,14 +1,16 @@
 # Cover Letter
 
-To the Hiring Manager.
+Hello.
 
-I am excited to apply for the Infrastructure Software Developer position with your team. Although my professional experience is limited, my enthusiasm for automation and quick learning align perfectly with the role, and I am passionate about DevOps as a career path.
-Automation is central to how I work. I'm very comfortable at the command-line and use it daily. I have gained a solid grasp of Linux and the UNIX shell, and know how to write shell scripts that are clean, performant, and don’t fail on edge-cases.
+I hope to be considered for this Devops Engineer position. I have a strong background Linux and Shell scripting, which is part of my daily usage. I've had plenty of experience with IaC; mostly Nix and Ansible, though I've used Jenkins, Github Actions, and some other less well known ones. And I've had plenty of experience hosting both from my own hardware and from the cloud (Linode, mostly).
 
-I have hands-on experience with IaC tools like Ansible and NixOS from managing my home server deployments. I have a good nose for finding the appropriate technologies to solve specific problems and am not shy about rolling my own when it’s clearly necessary. I am also quite a good programmer.
+Although I studied Computer Science, automation has always been my passion and, while I am quite a good programmer, that skill is just as well applied to DevOps. Furthermore, I have a keen eye for flaws in complex systems, as well as for proper solutions without leaky abstractions, and solving the immediate problems of myself and my peers in a clean and robust way is one of the most rewarding things for me.
 
-My CV itself is a representation of how I like to solve problems, and a demonstration of my ability to do so. It uses Markdown, CSV, and YAML files, along with data retrieved from the web, and renders into HTML and CSS.
-Thank you for considering my application. I hope you look favourably on my application and I look forward to discussing how my passion for automation and learning can contribute to your team.
+I generally automate everything I can. Automation does more than just save me time, I believe people do their best work when it is purified and distraction-free, so experimentation and ideation is easy. I am also proudly a generalist and will learn whatever I need to learn to solve whatever problem I'm faced with.
+
+Thank you for your consideration. I hope you look favorably on my application.
+
+If you could also consider me for any other DevOps positions you may have on your books, I would be very grateful!
 
 Yours sincerely,
 

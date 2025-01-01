@@ -2,8 +2,9 @@
 accent0: "#557c8c"
 ---
 # About Me
-I'm a recent graduate. I like to make cool projects, and take things apart to see how they work.
+I like to solve problems and take things apart to see how they work.
 
-I take pride in good design, and tend to form a deep  understanding in all that I do.
+I take pride in good design, I have good mind for systems, and I always work from a basis of understanding.
 
-I've always loved using computers to make things easier.
+I once read the Linux Kernel Documentation cover-to-cover because genuinely thought it was an interesting read.
+
