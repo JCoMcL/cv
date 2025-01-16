@@ -1,0 +1,12 @@
+.Linux {
+    --language-color: #FFD133;
+}
+.Linode{
+    --language-color: #00B259;
+}
+.NodeJS{
+    --language-color: rgb(132 186 100);
+}
+.Docker{
+    --language-color: #1d63ed;
+}
