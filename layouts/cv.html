@@ -44,19 +44,25 @@
                 {{ partial "title-image" .}}
                 <a href={{.Params.p_url}} > <h2>{{.Title}}</h2> </a>
                 {{with .Params.api }}
-                    {{with index ( getJSON . ) "stargazers_count"}}
+                    {{with index ((resources.GetRemote .).Content| unmarshal) "stargazers_count"}}
                         <a href={{compare.Conditional $gitlab "-/starrers" "stargazers" | printf "%s/%s" $url }} class="stars">{{partial "icon" "star"}}{{.}}</a>
                     {{end}}
 
-                    {{with compare.Conditional $gitlab "repository/contributors" "contributors" | printf "%s/%s" . | getJSON | len}}
-                        {{if compare.Gt . 1}}
-                            <a href={{compare.Conditional $gitlab "-/graphs/master" "contributors" | printf "%s/%s" $url }} class="stars">{{partial "icon" "people"}}{{.}}</a>
+                    {{with compare.Conditional $gitlab "repository/contributors" "contributors" | printf "%s/%s" .| resources.GetRemote}}
+                        {{with .Content | unmarshal | len}}
+                            {{if compare.Gt . 1}}
+                                <a href={{compare.Conditional $gitlab "-/graphs/master" "contributors" | printf "%s/%s" $url }} class="stars">{{partial "icon" "people"}}{{.}}</a>
+                            {{end}}
                         {{end}}
                     {{end}}
                 {{end}}
             </hgroup>
             {{ .Content }}
-            {{with .Params.api}}{{printf "%s/%s" . "languages" | getJSON | partial "stacked-bargraph"}}{{end}}
+            {{with .Params.api}}
+                {{with printf "%s/%s" . "languages" | resources.GetRemote }}
+                    {{.Content| unmarshal | partial "stacked-bargraph"}}
+                {{end}}
+            {{end}}
         </div>
     {{end }}
 </main>

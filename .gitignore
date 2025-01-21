@@ -12,3 +12,4 @@ hugo.pid
 layouts/index.html
 hugo-url
 *.pdf
+/layouts/index.html

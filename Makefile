@@ -40,7 +40,7 @@ restart-hugo: clean-hugo hugo.pid
 	sleep 1
 
 clean: clean-hugo
-	rm -rf cv.pdf cl.pdf CV-Jordan-Conway-McLaughlin.pdf
+	rm -rf cv.pdf cl.pdf CV-Jordan-Conway-McLaughlin.pdf layoun/index.html
 
 .PHONY: clean restart-hugo clean-hugo stop
 
